@@ -1,8 +1,16 @@
 <?php
+$custnumb = $_POST['custnumb'];
+$custname = $_POST["custname"];
+$slsrnumb = $_POST["slsrnumb"];
+$custaddr = $_POST["custaddr"];
+$balance = $_POST["balance"];
+$credlim = $_POST["credlim"];
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "premiere";
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -12,7 +20,7 @@ if ($conn->connect_error) {
 }
 
 $sql = "INSERT INTO customer (custnumb, custname, slsrnumb, custaddr, balance, credlim)
-VALUES ('126', 'Doe', '12', 'Dau Mabalacat', '800', '1000')";
+VALUES ('$custnumb', '$custname', '$slsrnumb', '$custaddr', '$balance', '$credlim')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
